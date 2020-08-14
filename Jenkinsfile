@@ -1,9 +1,14 @@
 pipeline {
-    agent { docker 'node:6.3' }
+    agent {
+        docker {
+            image 'openroadcloud/flow'
+            args  '--mount type=bind,src="/home/bangxiang/tryopenroad/manualrun/flowuuid",dst=/cloud'
+        }
+    }
     stages {
-        stage('build') {
+        stage('run') {
             steps {
-                sh 'npm --version'
+                sh '/OpenROAD-flow/flow/flow.sh'
             }
         }
     }
