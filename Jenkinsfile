@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('run') {
             steps {
-                sh 'work=/root/OpenRoadOneStepRun; $work/runflow.sh $work/flowuuid'
+                sh 'ls -alhs /root/OpenRoadOneStepRun; ls -alhs /root/'
             }
         }
     }
