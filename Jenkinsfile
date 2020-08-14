@@ -1,9 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'openroadcloud/flow'
+            args  '--mount type=bind,src="/root/OpenRoadOneStepRun",dst=/cloud'
+        }
+    }
     stages {
         stage('run') {
             steps {
-                sh 'ls -alhs /root/OpenRoadOneStepRun; ls -alhs /root/'
+                sh 'ls -alhs /cloud;'
             }
         }
     }
