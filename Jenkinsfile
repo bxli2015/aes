@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('run') {
             steps {
-                sh './flow.sh'
+                sh 'ls -alhs ./flow.sh'
             }
         }
     }
