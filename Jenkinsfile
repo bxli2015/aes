@@ -2,7 +2,7 @@
       agent {
           docker {
               image 'openroadcloud/flow'
-              args  '--mount type=bind,src="/home/bangxiang/tryopenroad/manualrun/flowuuid",dst=/cloud --entrypoint='
+              args  '--entrypoint='
           }
       }
       stages {
@@ -14,14 +14,12 @@
           }
           stage('synth') {
               steps {
-                  sh 'cd /OpenROAD-flow/flow'
-                  sh 'make DESIGN_CONFIG=designs/nangate45/gcd/config.mk synth'
+                  sh 'make DESIGN_CONFIG=./designs/nangate45/gcd/config.mk synth'
               }
           }
           stage('floorplan') {
               steps {
-                  sh 'cd /OpenROAD-flow/flow'
-                  sh 'make DESIGN_CONFIG=designs/nangate45/gcd/config.mk floorplan'
+                  sh 'make DESIGN_CONFIG=./designs/nangate45/gcd/config.mk floorplan'
               }
           }
       }
