@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker 'node:6.3' }
+    agent any
     stages {
-        stage('build') {
+        stage('run') {
             steps {
-                sh 'npm --version'
+                sh 'work=/home/bangxiang/tryopenroad/manualrun; $work/runflow.sh $work/flowuuid'
             }
         }
     }
